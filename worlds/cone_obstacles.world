@@ -1,0 +1,2855 @@
+<sdf version='1.7'>
+  <world name='default'>
+    <light name='sun' type='directional'>
+      <cast_shadows>1</cast_shadows>
+      <pose>0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+    <model name='ground_plane'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_bitmask>65535</collide_bitmask>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <physics type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+    </scene>
+    <audio>
+      <device>default</device>
+    </audio>
+    <wind/>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <model name='rb-y1'>
+      <link name='base'>
+        <inertial>
+          <pose>-0.024441 -0.007872 0.689468 0 -0 0</pose>
+          <mass>52.5702</mass>
+          <inertia>
+            <ixx>11.3978</ixx>
+            <ixy>0.0355986</ixy>
+            <ixz>-0.00178044</ixz>
+            <iyy>13.0178</iyy>
+            <iyz>-0.0713061</iyz>
+            <izz>4.07043</izz>
+          </inertia>
+        </inertial>
+        <collision name='base_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/mrg/ros2_ws/install/rb-Y1_mobile_base/share/rb-Y1_mobile_base/description/meshes/base.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.001</mu>
+                <mu2>0.001</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='base_fixed_joint_lump__link_torso_0_collision_1'>
+          <pose>-0.115 0 0.2805 3.14159 1.57079 3.14159</pose>
+          <geometry>
+            <cylinder>
+              <length>0.23</length>
+              <radius>0.105</radius>
+            </cylinder>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='base_fixed_joint_lump__link_torso_1_collision_2'>
+          <pose>0.01 0 0.5205 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.22</length>
+              <radius>0.115</radius>
+            </cylinder>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='base_fixed_joint_lump__link_torso_2_collision_3'>
+          <pose>0.025 0 0.8605 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.16</length>
+              <radius>0.095</radius>
+            </cylinder>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='base_fixed_joint_lump__link_torso_4_collision_4'>
+          <pose>-0.07 0 1.019 3.14159 1.57079 3.14159</pose>
+          <geometry>
+            <cylinder>
+              <length>0.2</length>
+              <radius>0.105</radius>
+            </cylinder>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='base_fixed_joint_lump__link_torso_5_collision_5'>
+          <pose>0 0 1.29743 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.135</length>
+              <radius>0.155</radius>
+            </cylinder>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='base_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/mrg/ros2_ws/install/rb-Y1_mobile_base/share/rb-Y1_mobile_base/description/meshes/base.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/White</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='base_fixed_joint_lump__link_torso_0_visual_1'>
+          <pose>0 0 0.2805 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/mrg/ros2_ws/install/rb-Y1_mobile_base/share/rb-Y1_mobile_base/description/meshes/LINK_1.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='base_fixed_joint_lump__link_torso_1_visual_2'>
+          <pose>0 0 0.2805 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/mrg/ros2_ws/install/rb-Y1_mobile_base/share/rb-Y1_mobile_base/description/meshes/LINK_2.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='base_fixed_joint_lump__link_torso_2_visual_3'>
+          <pose>0 0 0.6305 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/mrg/ros2_ws/install/rb-Y1_mobile_base/share/rb-Y1_mobile_base/description/meshes/LINK_3.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='base_fixed_joint_lump__link_torso_3_visual_4'>
+          <pose>0 0 0.9805 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/mrg/ros2_ws/install/rb-Y1_mobile_base/share/rb-Y1_mobile_base/description/meshes/LINK_4.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='base_fixed_joint_lump__link_torso_4_visual_5'>
+          <pose>0 0 0.9805 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/mrg/ros2_ws/install/rb-Y1_mobile_base/share/rb-Y1_mobile_base/description/meshes/LINK_5.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='base_fixed_joint_lump__link_torso_5_visual_6'>
+          <pose>0 0 1.28993 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/mrg/ros2_ws/install/rb-Y1_mobile_base/share/rb-Y1_mobile_base/description/meshes/LINK_6.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='base_fixed_joint_lump__link_head_0_visual_7'>
+          <pose>0.022 0 1.41 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/mrg/ros2_ws/install/rb-Y1_mobile_base/share/rb-Y1_mobile_base/description/meshes/PAN_TILT_1.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='left_wheel' type='revolute'>
+        <pose relative_to='base'>0.228 0.265 0.1 0 -0 0</pose>
+        <parent>base</parent>
+        <child>wheel_l</child>
+        <axis>
+          <xyz>0 -1 0</xyz>
+          <limit>
+            <effort>270</effort>
+            <velocity>15.708</velocity>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='wheel_l'>
+        <pose relative_to='left_wheel'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0.000939 0 0 -0 0</pose>
+          <mass>1.37784</mass>
+          <inertia>
+            <ixx>0.00426657</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.00811815</iyy>
+            <iyz>0</iyz>
+            <izz>0.00426657</izz>
+          </inertia>
+        </inertial>
+        <collision name='wheel_l_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/mrg/ros2_ws/install/rb-Y1_mobile_base/share/rb-Y1_mobile_base/description/meshes/WHEEL.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.1</mu>
+                <mu2>0.1</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='wheel_l_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/mrg/ros2_ws/install/rb-Y1_mobile_base/share/rb-Y1_mobile_base/description/meshes/WHEEL.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Red</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='right_wheel' type='revolute'>
+        <pose relative_to='base'>0.228 -0.265 0.1 0 -0 0</pose>
+        <parent>base</parent>
+        <child>wheel_r</child>
+        <axis>
+          <xyz>0 -1 0</xyz>
+          <limit>
+            <effort>270</effort>
+            <velocity>15.708</velocity>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='wheel_r'>
+        <pose relative_to='right_wheel'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 -0.000939 0 0 -0 0</pose>
+          <mass>1.37784</mass>
+          <inertia>
+            <ixx>0.00426657</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.00811815</iyy>
+            <iyz>0</iyz>
+            <izz>0.00426657</izz>
+          </inertia>
+        </inertial>
+        <collision name='wheel_r_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/mrg/ros2_ws/install/rb-Y1_mobile_base/share/rb-Y1_mobile_base/description/meshes/WHEEL.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.1</mu>
+                <mu2>0.1</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='wheel_r_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/mrg/ros2_ws/install/rb-Y1_mobile_base/share/rb-Y1_mobile_base/description/meshes/WHEEL.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Red</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='head_0' type='revolute'>
+        <pose relative_to='base'>0.022 0 1.43 0 -0 0</pose>
+        <parent>base</parent>
+        <child>link_head_1</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-0.523</lower>
+            <upper>0.523</upper>
+            <effort>1000</effort>
+            <velocity>3.14</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='link_head_1'>
+        <pose relative_to='head_0'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>-0.011507 -0.001143 -0.000316 0 -0 0</pose>
+          <mass>0.0745058</mass>
+          <inertia>
+            <ixx>1.85e-05</ixx>
+            <ixy>-3.5e-07</ixy>
+            <ixz>2.03e-06</ixz>
+            <iyy>2.451e-05</iyy>
+            <iyz>-1e-07</iyz>
+            <izz>2.062e-05</izz>
+          </inertia>
+        </inertial>
+        <visual name='link_head_1_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/mrg/ros2_ws/install/rb-Y1_mobile_base/share/rb-Y1_mobile_base/description/meshes/PAN_TILT_2.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='head_1' type='revolute'>
+        <pose relative_to='link_head_1'>0 0 0 0 -0 0</pose>
+        <parent>link_head_1</parent>
+        <child>link_head_2</child>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>-0.35</lower>
+            <upper>1.57</upper>
+            <effort>1000</effort>
+            <velocity>3.14</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='link_head_2'>
+        <pose relative_to='head_1'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>-0.00082 0.00099 0.022837 0 -0 0</pose>
+          <mass>0.0358537</mass>
+          <inertia>
+            <ixx>2.046e-05</ixx>
+            <ixy>1e-08</ixy>
+            <ixz>-2.7e-07</ixz>
+            <iyy>1.044e-05</iyy>
+            <iyz>7.6e-07</iyz>
+            <izz>1.291e-05</izz>
+          </inertia>
+        </inertial>
+        <visual name='link_head_2_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/mrg/ros2_ws/install/rb-Y1_mobile_base/share/rb-Y1_mobile_base/description/meshes/PAN_TILT_3.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='left_arm_0' type='revolute'>
+        <pose relative_to='base'>0 0.22 1.37 0.349066 -0 0</pose>
+        <parent>base</parent>
+        <child>link_left_arm_0</child>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>-3.14159</lower>
+            <upper>3.14159</upper>
+            <effort>70</effort>
+            <velocity>3.14159</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='link_left_arm_0'>
+        <pose relative_to='left_arm_0'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>-0.003167 -0.034372 2e-06 0 -0 0</pose>
+          <mass>1.26164</mass>
+          <inertia>
+            <ixx>0.00230624</ixx>
+            <ixy>-0.00039022</ixy>
+            <ixz>2.69e-06</ixz>
+            <iyy>0.00426418</iyy>
+            <iyz>1.08e-06</iyz>
+            <izz>0.00432159</izz>
+          </inertia>
+        </inertial>
+        <collision name='link_left_arm_0_collision'>
+          <pose>-0.015 -0.018 -0.008 3.14159 1.57079 3.14159</pose>
+          <geometry>
+            <cylinder>
+              <length>0.07</length>
+              <radius>0.075</radius>
+            </cylinder>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='link_left_arm_0_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/mrg/ros2_ws/install/rb-Y1_mobile_base/share/rb-Y1_mobile_base/description/meshes/LINK_14.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='left_arm_1' type='revolute'>
+        <pose relative_to='link_left_arm_0'>0 0 0 -0.349066 0 0</pose>
+        <parent>link_left_arm_0</parent>
+        <child>link_left_arm_1</child>
+        <axis>
+          <xyz>1 0 0</xyz>
+          <limit>
+            <lower>-0.0174533</lower>
+            <upper>3.14159</upper>
+            <effort>70</effort>
+            <velocity>3.14159</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='link_left_arm_1'>
+        <pose relative_to='left_arm_1'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>-0.001835 0.000406 -0.010087 0 -0 0</pose>
+          <mass>1.88139</mass>
+          <inertia>
+            <ixx>0.00295838</ixx>
+            <ixy>-1.176e-05</ixy>
+            <ixz>6.949e-05</ixz>
+            <iyy>0.00355208</iyy>
+            <iyz>4.467e-05</iyz>
+            <izz>0.00230558</izz>
+          </inertia>
+        </inertial>
+        <collision name='link_left_arm_1_collision'>
+          <pose>0 0 -0.1 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.2</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='link_left_arm_1_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/mrg/ros2_ws/install/rb-Y1_mobile_base/share/rb-Y1_mobile_base/description/meshes/LINK_15.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='left_arm_2' type='revolute'>
+        <pose relative_to='link_left_arm_1'>0 0 0 0 -0 0</pose>
+        <parent>link_left_arm_1</parent>
+        <child>link_left_arm_2</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-3.14159</lower>
+            <upper>3.14159</upper>
+            <effort>70</effort>
+            <velocity>3.14159</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='link_left_arm_2'>
+        <pose relative_to='left_arm_2'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.000661 -0.000386 -0.15743 0 -0 0</pose>
+          <mass>2.35634</mass>
+          <inertia>
+            <ixx>0.00842712</ixx>
+            <ixy>2.47e-06</ixy>
+            <ixz>0.00036948</ixz>
+            <iyy>0.00802311</iyy>
+            <iyz>-6.55e-05</iyz>
+            <izz>0.00295678</izz>
+          </inertia>
+        </inertial>
+        <collision name='link_left_arm_2_collision'>
+          <pose>0.026 0 -0.276 1.5708 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.08</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='link_left_arm_2_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/mrg/ros2_ws/install/rb-Y1_mobile_base/share/rb-Y1_mobile_base/description/meshes/LINK_16.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='left_arm_3' type='revolute'>
+        <pose relative_to='link_left_arm_2'>0.031 0 -0.276 0 -0 0</pose>
+        <parent>link_left_arm_2</parent>
+        <child>link_left_arm_3</child>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>-2.61799</lower>
+            <upper>0.0174533</upper>
+            <effort>40</effort>
+            <velocity>3.14159</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='link_left_arm_3'>
+        <pose relative_to='left_arm_3'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>-0.015653 0.007931 -0.049979 0 -0 0</pose>
+          <mass>2.00906</mass>
+          <inertia>
+            <ixx>0.00756474</ixx>
+            <ixy>-0.00026771</ixy>
+            <ixz>-0.00155419</ixz>
+            <iyy>0.00772758</iyy>
+            <iyz>-0.00084364</iyz>
+            <izz>0.00199754</izz>
+          </inertia>
+        </inertial>
+        <collision name='link_left_arm_3_collision'>
+          <pose>-0.031 0 -0.1075 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.115</length>
+              <radius>0.04</radius>
+            </cylinder>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='link_left_arm_3_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/mrg/ros2_ws/install/rb-Y1_mobile_base/share/rb-Y1_mobile_base/description/meshes/LINK_17.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='left_arm_4' type='revolute'>
+        <pose relative_to='link_left_arm_3'>-0.031 0 -0.256 0 -0 0</pose>
+        <parent>link_left_arm_3</parent>
+        <child>link_left_arm_4</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-3.14159</lower>
+            <upper>3.14159</upper>
+            <effort>10</effort>
+            <velocity>6.28319</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='link_left_arm_4'>
+        <pose relative_to='left_arm_4'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0.02696 0.061821 0 -0 0</pose>
+          <mass>0.425087</mass>
+          <inertia>
+            <ixx>0.00082466</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.00075398</iyy>
+            <iyz>0.00025338</iyz>
+            <izz>0.00039794</izz>
+          </inertia>
+        </inertial>
+        <collision name='link_left_arm_4_collision'>
+          <pose>0 0.038 0.0175 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.095</length>
+              <radius>0.035</radius>
+            </cylinder>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='link_left_arm_4_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/mrg/ros2_ws/install/rb-Y1_mobile_base/share/rb-Y1_mobile_base/description/meshes/LINK_18.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='left_arm_5' type='revolute'>
+        <pose relative_to='link_left_arm_4'>0 0 0 0 -0 0</pose>
+        <parent>link_left_arm_4</parent>
+        <child>link_left_arm_5</child>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>-1.5708</lower>
+            <upper>1.91986</upper>
+            <effort>10</effort>
+            <velocity>6.28319</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='link_left_arm_5'>
+        <pose relative_to='left_arm_5'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.003401 0.005768 -0.025073 0 -0 0</pose>
+          <mass>1.44265</mass>
+          <inertia>
+            <ixx>0.00233577</ixx>
+            <ixy>3.048e-05</ixy>
+            <ixz>-1.191e-05</ixz>
+            <iyy>0.0023258</iyy>
+            <iyz>-0.00019491</iyz>
+            <izz>0.00138375</izz>
+          </inertia>
+        </inertial>
+        <collision name='link_left_arm_5_collision'>
+          <pose>0 0 -0.1 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.25</length>
+              <radius>0.075</radius>
+            </cylinder>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='link_left_arm_5_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/mrg/ros2_ws/install/rb-Y1_mobile_base/share/rb-Y1_mobile_base/description/meshes/LINK_19.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='left_arm_6' type='revolute'>
+        <pose relative_to='link_left_arm_5'>0 0 0 0 -0 0</pose>
+        <parent>link_left_arm_5</parent>
+        <child>link_left_arm_6</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-2.79253</lower>
+            <upper>2.79253</upper>
+            <effort>8</effort>
+            <velocity>2.0944</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='link_left_arm_6'>
+        <pose relative_to='left_arm_6'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.000685 -0.000394 -0.149904 0 -0 0</pose>
+          <mass>1.16921</mass>
+          <inertia>
+            <ixx>0.00265994</ixx>
+            <ixy>1.96181e-05</ixy>
+            <ixz>4.95909e-05</ixz>
+            <iyy>0.00296425</iyy>
+            <iyz>1.51323e-05</iyz>
+            <izz>0.00114748</izz>
+          </inertia>
+        </inertial>
+        <visual name='link_left_arm_6_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/mrg/ros2_ws/install/rb-Y1_mobile_base/share/rb-Y1_mobile_base/description/meshes/LINK_20.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_left_arm_6_fixed_joint_lump__FT_sensor_L_visual_1'>
+          <pose>0 0 -0.1087 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/mrg/ros2_ws/install/rb-Y1_mobile_base/share/rb-Y1_mobile_base/description/meshes/FT_SENSOR_L.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_left_arm_6_fixed_joint_lump__ee_left_visual_2'>
+          <pose>0 0 -0.1548 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/mrg/ros2_ws/install/rb-Y1_mobile_base/share/rb-Y1_mobile_base/description/meshes/EE_BODY.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='gripper_finger_l1' type='prismatic'>
+        <pose relative_to='link_left_arm_6'>0.003 0 -0.2278 0 -0 0</pose>
+        <parent>link_left_arm_6</parent>
+        <child>ee_finger_l1</child>
+        <axis>
+          <xyz>-1 0 0</xyz>
+          <limit>
+            <lower>-0.05</lower>
+            <upper>0</upper>
+            <effort>1000</effort>
+            <velocity>0.05</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='ee_finger_l1'>
+        <pose relative_to='gripper_finger_l1'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.002783 -3e-06 -0.025701 0 -0 0</pose>
+          <mass>0.03327</mass>
+          <inertia>
+            <ixx>1.231e-05</ixx>
+            <ixy>0</ixy>
+            <ixz>-4.2e-07</ixz>
+            <iyy>1.066e-05</iyy>
+            <iyz>0</iyz>
+            <izz>2.24e-06</izz>
+          </inertia>
+        </inertial>
+        <visual name='ee_finger_l1_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/mrg/ros2_ws/install/rb-Y1_mobile_base/share/rb-Y1_mobile_base/description/meshes/EE_FINGER.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='gripper_finger_l2' type='prismatic'>
+        <pose relative_to='link_left_arm_6'>-0.003 0 -0.2278 0 -0 3.14159</pose>
+        <parent>link_left_arm_6</parent>
+        <child>ee_finger_l2</child>
+        <axis>
+          <xyz>1 0 0</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>0.05</upper>
+            <effort>1000</effort>
+            <velocity>0.05</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='ee_finger_l2'>
+        <pose relative_to='gripper_finger_l2'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.002783 -3e-06 -0.025701 0 -0 0</pose>
+          <mass>0.03327</mass>
+          <inertia>
+            <ixx>1.231e-05</ixx>
+            <ixy>0</ixy>
+            <ixz>-4.2e-07</ixz>
+            <iyy>1.066e-05</iyy>
+            <iyz>0</iyz>
+            <izz>2.24e-06</izz>
+          </inertia>
+        </inertial>
+        <visual name='ee_finger_l2_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/mrg/ros2_ws/install/rb-Y1_mobile_base/share/rb-Y1_mobile_base/description/meshes/EE_FINGER.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='right_arm_0' type='revolute'>
+        <pose relative_to='base'>0 -0.22 1.37 -0.349066 0 0</pose>
+        <parent>base</parent>
+        <child>link_right_arm_0</child>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>-3.14159</lower>
+            <upper>3.14159</upper>
+            <effort>70</effort>
+            <velocity>3.14159</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='link_right_arm_0'>
+        <pose relative_to='right_arm_0'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>-0.003167 0.034372 -0 0 -0 0</pose>
+          <mass>1.26164</mass>
+          <inertia>
+            <ixx>0.00230621</ixx>
+            <ixy>0.00039024</ixy>
+            <ixz>-2.56e-06</ixz>
+            <iyy>0.00426418</iyy>
+            <iyz>1.18e-06</iyz>
+            <izz>0.00432156</izz>
+          </inertia>
+        </inertial>
+        <collision name='link_right_arm_0_collision'>
+          <pose>-0.015 0.018 -0.008 3.14159 1.57079 3.14159</pose>
+          <geometry>
+            <cylinder>
+              <length>0.07</length>
+              <radius>0.075</radius>
+            </cylinder>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='link_right_arm_0_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/mrg/ros2_ws/install/rb-Y1_mobile_base/share/rb-Y1_mobile_base/description/meshes/LINK_7.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='right_arm_1' type='revolute'>
+        <pose relative_to='link_right_arm_0'>0 0 0 0.349066 -0 0</pose>
+        <parent>link_right_arm_0</parent>
+        <child>link_right_arm_1</child>
+        <axis>
+          <xyz>1 0 0</xyz>
+          <limit>
+            <lower>-3.14159</lower>
+            <upper>0.0174533</upper>
+            <effort>70</effort>
+            <velocity>3.14159</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='link_right_arm_1'>
+        <pose relative_to='right_arm_1'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>-0.003079 -0.001247 -0.012943 0 -0 0</pose>
+          <mass>2.27287</mass>
+          <inertia>
+            <ixx>0.0038849</ixx>
+            <ixy>-1.477e-05</ixy>
+            <ixz>0.00011465</ixz>
+            <iyy>0.00447034</iyy>
+            <iyz>-0.00010023</iyz>
+            <izz>0.00288341</izz>
+          </inertia>
+        </inertial>
+        <collision name='link_right_arm_1_collision'>
+          <pose>0 0 -0.1 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.2</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='link_right_arm_1_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/mrg/ros2_ws/install/rb-Y1_mobile_base/share/rb-Y1_mobile_base/description/meshes/LINK_8.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='right_arm_2' type='revolute'>
+        <pose relative_to='link_right_arm_1'>0 0 0 0 -0 0</pose>
+        <parent>link_right_arm_1</parent>
+        <child>link_right_arm_2</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-3.14159</lower>
+            <upper>3.14159</upper>
+            <effort>70</effort>
+            <velocity>3.14159</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='link_right_arm_2'>
+        <pose relative_to='right_arm_2'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.001154 -0.001966 -0.161925 0 -0 0</pose>
+          <mass>2.46909</mass>
+          <inertia>
+            <ixx>0.00980269</ixx>
+            <ixy>5.871e-05</ixy>
+            <ixz>0.00051888</ixz>
+            <iyy>0.0092456</iyy>
+            <iyz>-0.00045932</iyz>
+            <izz>0.00329867</izz>
+          </inertia>
+        </inertial>
+        <collision name='link_right_arm_2_collision'>
+          <pose>0.026 0 -0.276 1.5708 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.08</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='link_right_arm_2_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/mrg/ros2_ws/install/rb-Y1_mobile_base/share/rb-Y1_mobile_base/description/meshes/LINK_9.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='right_arm_3' type='revolute'>
+        <pose relative_to='link_right_arm_2'>0.031 0 -0.276 0 -0 0</pose>
+        <parent>link_right_arm_2</parent>
+        <child>link_right_arm_3</child>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>-2.61799</lower>
+            <upper>0.0174533</upper>
+            <effort>40</effort>
+            <velocity>3.14159</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='link_right_arm_3'>
+        <pose relative_to='right_arm_3'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>-0.016031 -0.006929 -0.045498 0 -0 0</pose>
+          <mass>2.26099</mass>
+          <inertia>
+            <ixx>0.00822606</ixx>
+            <ixy>0.0002762</ixy>
+            <ixz>-0.0015657</ixz>
+            <iyy>0.0084487</iyy>
+            <iyz>0.00076157</iyz>
+            <izz>0.00236614</izz>
+          </inertia>
+        </inertial>
+        <collision name='link_right_arm_3_collision'>
+          <pose>-0.031 0 -0.1075 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.115</length>
+              <radius>0.04</radius>
+            </cylinder>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='link_right_arm_3_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/mrg/ros2_ws/install/rb-Y1_mobile_base/share/rb-Y1_mobile_base/description/meshes/LINK_10.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='right_arm_4' type='revolute'>
+        <pose relative_to='link_right_arm_3'>-0.031 0 -0.256 0 -0 0</pose>
+        <parent>link_right_arm_3</parent>
+        <child>link_right_arm_4</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-3.14159</lower>
+            <upper>3.14159</upper>
+            <effort>10</effort>
+            <velocity>6.28319</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='link_right_arm_4'>
+        <pose relative_to='right_arm_4'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>-0 -0.02696 0.061821 0 -0 0</pose>
+          <mass>0.425087</mass>
+          <inertia>
+            <ixx>0.00082466</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.00075398</iyy>
+            <iyz>-0.00025338</iyz>
+            <izz>0.00039794</izz>
+          </inertia>
+        </inertial>
+        <collision name='link_right_arm_4_collision'>
+          <pose>0 -0.038 0.0175 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.095</length>
+              <radius>0.035</radius>
+            </cylinder>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='link_right_arm_4_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/mrg/ros2_ws/install/rb-Y1_mobile_base/share/rb-Y1_mobile_base/description/meshes/LINK_11.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='right_arm_5' type='revolute'>
+        <pose relative_to='link_right_arm_4'>0 0 0 0 -0 0</pose>
+        <parent>link_right_arm_4</parent>
+        <child>link_right_arm_5</child>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>-1.5708</lower>
+            <upper>1.91986</upper>
+            <effort>10</effort>
+            <velocity>6.28319</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='link_right_arm_5'>
+        <pose relative_to='right_arm_5'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.00318 -0.005323 -0.028097 0 -0 0</pose>
+          <mass>1.59194</mass>
+          <inertia>
+            <ixx>0.00256054</ixx>
+            <ixy>-2.344e-05</ixy>
+            <ixz>-1.563e-05</ixz>
+            <iyy>0.00257233</iyy>
+            <iyz>0.00021608</iyz>
+            <izz>0.00156092</izz>
+          </inertia>
+        </inertial>
+        <collision name='link_right_arm_5_collision'>
+          <pose>0 0 -0.1 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.25</length>
+              <radius>0.075</radius>
+            </cylinder>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='link_right_arm_5_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/mrg/ros2_ws/install/rb-Y1_mobile_base/share/rb-Y1_mobile_base/description/meshes/LINK_12.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='right_arm_6' type='revolute'>
+        <pose relative_to='link_right_arm_5'>0 0 0 0 -0 0</pose>
+        <parent>link_right_arm_5</parent>
+        <child>link_right_arm_6</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-2.79253</lower>
+            <upper>2.79253</upper>
+            <effort>8</effort>
+            <velocity>2.0944</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='link_right_arm_6'>
+        <pose relative_to='right_arm_6'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.001014 0.000399 -0.149904 0 -0 0</pose>
+          <mass>1.16921</mass>
+          <inertia>
+            <ixx>0.00265994</ixx>
+            <ixy>2.0406e-05</ixy>
+            <ixz>2.96168e-05</ixz>
+            <iyy>0.0029636</iyy>
+            <iyz>-1.49979e-05</iyz>
+            <izz>0.00114682</izz>
+          </inertia>
+        </inertial>
+        <visual name='link_right_arm_6_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/mrg/ros2_ws/install/rb-Y1_mobile_base/share/rb-Y1_mobile_base/description/meshes/LINK_13.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_right_arm_6_fixed_joint_lump__FT_sensor_R_visual_1'>
+          <pose>0 0 -0.1087 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/mrg/ros2_ws/install/rb-Y1_mobile_base/share/rb-Y1_mobile_base/description/meshes/FT_SENSOR_R.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_right_arm_6_fixed_joint_lump__ee_right_visual_2'>
+          <pose>0 0 -0.1548 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/mrg/ros2_ws/install/rb-Y1_mobile_base/share/rb-Y1_mobile_base/description/meshes/EE_BODY.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='gripper_finger_r1' type='prismatic'>
+        <pose relative_to='link_right_arm_6'>0.003 0 -0.2278 0 -0 0</pose>
+        <parent>link_right_arm_6</parent>
+        <child>ee_finger_r1</child>
+        <axis>
+          <xyz>-1 0 0</xyz>
+          <limit>
+            <lower>-0.05</lower>
+            <upper>0</upper>
+            <effort>1000</effort>
+            <velocity>0.05</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='ee_finger_r1'>
+        <pose relative_to='gripper_finger_r1'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.002783 -3e-06 -0.025701 0 -0 0</pose>
+          <mass>0.03327</mass>
+          <inertia>
+            <ixx>1.231e-05</ixx>
+            <ixy>0</ixy>
+            <ixz>-4.2e-07</ixz>
+            <iyy>1.066e-05</iyy>
+            <iyz>0</iyz>
+            <izz>2.24e-06</izz>
+          </inertia>
+        </inertial>
+        <visual name='ee_finger_r1_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/mrg/ros2_ws/install/rb-Y1_mobile_base/share/rb-Y1_mobile_base/description/meshes/EE_FINGER.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='gripper_finger_r2' type='prismatic'>
+        <pose relative_to='link_right_arm_6'>-0.003 0 -0.2278 0 -0 3.14159</pose>
+        <parent>link_right_arm_6</parent>
+        <child>ee_finger_r2</child>
+        <axis>
+          <xyz>1 0 0</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>0.05</upper>
+            <effort>1000</effort>
+            <velocity>0.05</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='ee_finger_r2'>
+        <pose relative_to='gripper_finger_r2'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.002783 -3e-06 -0.025701 0 -0 0</pose>
+          <mass>0.03327</mass>
+          <inertia>
+            <ixx>1.231e-05</ixx>
+            <ixy>0</ixy>
+            <ixz>-4.2e-07</ixz>
+            <iyy>1.066e-05</iyy>
+            <iyz>0</iyz>
+            <izz>2.24e-06</izz>
+          </inertia>
+        </inertial>
+        <visual name='ee_finger_r2_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/mrg/ros2_ws/install/rb-Y1_mobile_base/share/rb-Y1_mobile_base/description/meshes/EE_FINGER.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <static>0</static>
+      <plugin name='diff_drive' filename='libgazebo_ros_diff_drive.so'>
+        <right_joint>right_wheel</right_joint>
+        <left_joint>left_wheel</left_joint>
+        <wheel_separation>0.53</wheel_separation>
+        <wheel_diameter>0.2</wheel_diameter>
+        <max_wheel_torque>200</max_wheel_torque>
+        <max_wheel_acceleration>10.0</max_wheel_acceleration>
+        <torque>5</torque>
+        <command_topic>cmd_vel</command_topic>
+        <odometry_topic>odom</odometry_topic>
+        <odometry_frame>odom</odometry_frame>
+        <robot_base_frame>base</robot_base_frame>
+        <publish_odom>1</publish_odom>
+        <publish_odom_tf>1</publish_odom_tf>
+        <publish_wheel_tf>1</publish_wheel_tf>
+        <publish_limited_velocity>1</publish_limited_velocity>
+        <publish_wheel_joint_state>1</publish_wheel_joint_state>
+      </plugin>
+      <pose>0 0 0 0 -0 0</pose>
+    </model>
+    <model name='Construction Barrel'>
+      <link name='link'>
+        <inertial>
+          <pose>0 0 0.4 0 -0 0</pose>
+          <mass>500</mass>
+          <inertia>
+            <ixx>51.2096</ixx>
+            <iyy>51.2096</iyy>
+            <izz>25</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://construction_barrel/meshes/construction_barrel.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://construction_barrel/meshes/construction_barrel.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>-2.43053 -0.515213 0 0 -0 0</pose>
+    </model>
+    <model name='Construction Barrel_0'>
+      <link name='link'>
+        <inertial>
+          <pose>0 0 0.4 0 -0 0</pose>
+          <mass>500</mass>
+          <inertia>
+            <ixx>51.2096</ixx>
+            <iyy>51.2096</iyy>
+            <izz>25</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://construction_barrel/meshes/construction_barrel.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://construction_barrel/meshes/construction_barrel.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>6.0265 2.56676 0 0 -0 0</pose>
+    </model>
+    <model name='Construction Cone'>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>3.41913 -2.38692 0 0 -0 0</pose>
+    </model>
+    <model name='Construction Cone_0'>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>1.65296 -2.28962 0 0 -0 0</pose>
+    </model>
+    <model name='Construction Cone_1'>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>-2.05495 -5.76417 0 0 -0 0</pose>
+    </model>
+    <model name='Construction Cone_2'>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>-0.540461 6.05297 0 0 -0 0</pose>
+    </model>
+    <model name='Construction Barrel_1'>
+      <link name='link'>
+        <inertial>
+          <pose>0 0 0.4 0 -0 0</pose>
+          <mass>500</mass>
+          <inertia>
+            <ixx>51.2096</ixx>
+            <iyy>51.2096</iyy>
+            <izz>25</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://construction_barrel/meshes/construction_barrel.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://construction_barrel/meshes/construction_barrel.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>-2.81821 5.89805 0 0 -0 0</pose>
+    </model>
+    <model name='Construction Barrel_2'>
+      <link name='link'>
+        <inertial>
+          <pose>0 0 0.4 0 -0 0</pose>
+          <mass>500</mass>
+          <inertia>
+            <ixx>51.2096</ixx>
+            <iyy>51.2096</iyy>
+            <izz>25</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://construction_barrel/meshes/construction_barrel.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://construction_barrel/meshes/construction_barrel.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>7.14055 -6.16709 0 0 -0 0</pose>
+    </model>
+    <model name='Construction Cone_3'>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>6.04185 3.77989 0 0 -0 0</pose>
+    </model>
+    <model name='Construction Cone_4'>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>5.75737 4.59202 0 0 -0 0</pose>
+    </model>
+    <model name='Construction Cone_5'>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>5.12979 5.43484 0 0 -0 0</pose>
+    </model>
+    <model name='Construction Barrel_3'>
+      <link name='link'>
+        <inertial>
+          <pose>0 0 0.4 0 -0 0</pose>
+          <mass>500</mass>
+          <inertia>
+            <ixx>51.2096</ixx>
+            <iyy>51.2096</iyy>
+            <izz>25</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://construction_barrel/meshes/construction_barrel.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://construction_barrel/meshes/construction_barrel.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>-7.52146 -6.40091 0 0 -0 0</pose>
+    </model>
+    <model name='Construction Barrel_4'>
+      <link name='link'>
+        <inertial>
+          <pose>0 0 0.4 0 -0 0</pose>
+          <mass>500</mass>
+          <inertia>
+            <ixx>51.2096</ixx>
+            <iyy>51.2096</iyy>
+            <izz>25</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://construction_barrel/meshes/construction_barrel.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://construction_barrel/meshes/construction_barrel.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>-6.70361 -4.51846 0 0 -0 0</pose>
+    </model>
+    <model name='Construction Cone_6'>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>2.53967 -2.99938 0 0 -0 0</pose>
+    </model>
+    <model name='Construction Cone_7'>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>-4.30119 5.86013 0 0 -0 0</pose>
+    </model>
+    <model name='Construction Barrel_5'>
+      <link name='link'>
+        <inertial>
+          <pose>0 0 0.4 0 -0 0</pose>
+          <mass>500</mass>
+          <inertia>
+            <ixx>51.2096</ixx>
+            <iyy>51.2096</iyy>
+            <izz>25</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://construction_barrel/meshes/construction_barrel.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://construction_barrel/meshes/construction_barrel.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>7.81248 -4.67927 0 0 -0 0</pose>
+    </model>
+    <model name='Construction Cone_8'>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>5.50392 6.4547 0 0 -0 0</pose>
+    </model>
+    <state world_name='default'>
+      <sim_time>756 688000000</sim_time>
+      <real_time>758 489052761</real_time>
+      <wall_time>1739312902 81315244</wall_time>
+      <iterations>756688</iterations>
+      <model name='Construction Barrel'>
+        <pose>-2.43061 -0.515248 1e-06 3e-06 2e-06 -2.6e-05</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>-2.43061 -0.515248 1e-06 3e-06 2e-06 -2.6e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>-0.127492 6.72898 1.66268 2.0206 -0.390699 0.035241</acceleration>
+          <wrench>-63.7459 3364.49 831.339 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Construction Barrel_0'>
+        <pose>6.02642 2.56673 1e-06 3e-06 2e-06 -2.5e-05</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>6.02642 2.56673 1e-06 3e-06 2e-06 -2.5e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>-0.127499 6.72898 1.66268 2.0206 -0.390715 0.03524</acceleration>
+          <wrench>-63.7494 3364.49 831.338 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Construction Barrel_1'>
+        <pose>-2.81829 5.89802 -0 0 0 -1.8e-05</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>-2.81829 5.89802 -0 0 0 -1.8e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>-5.78513 1.54056 3.81469 -0.709767 -1.2452 -3.14156</acceleration>
+          <wrench>-2892.57 770.279 1907.35 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Construction Barrel_2'>
+        <pose>7.14048 -6.16711 -2e-06 8e-06 -4e-06 -1.7e-05</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>7.14048 -6.16711 -2e-06 8e-06 -4e-06 -1.7e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>1.10184 -3.20209 -4.08226 -1.41949 0.387001 3.14148</acceleration>
+          <wrench>550.921 -1601.05 -2041.13 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Construction Barrel_3'>
+        <pose>-7.52149 -6.40092 -1e-06 0 5e-06 -1e-05</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>-7.52149 -6.40092 -1e-06 0 5e-06 -1e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>4.07424 4.91328 0.682056 -2.92314 -0.757734 3.11733</acceleration>
+          <wrench>2037.12 2456.64 341.028 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Construction Barrel_4'>
+        <pose>-6.70364 -4.51847 -2e-06 -0 7e-06 -8e-06</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>-6.70364 -4.51847 -2e-06 -0 7e-06 -8e-06</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>3.04445 -0.013296 -1.96637 0.032973 1.32798 -0.000199</acceleration>
+          <wrench>1522.23 -6.64798 -983.185 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Construction Barrel_5'>
+        <pose>7.81247 -4.67927 0 0 0 -3e-06</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>7.81247 -4.67927 0 0 0 -3e-06</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>3.45854 5.74438 4.40609 1.34623 0.77903 3.14097</acceleration>
+          <wrench>1729.27 2872.19 2203.04 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Construction Cone'>
+        <pose>3.41913 -2.38692 -0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>3.41913 -2.38692 -0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>-0 -0 -9.79958 0.000106 7.1e-05 0</acceleration>
+          <wrench>-0 -0 -9.79958 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Construction Cone_0'>
+        <pose>1.65296 -2.28962 -0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>1.65296 -2.28962 -0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 -0 -0.008512 -2.58585 1.13682 3.14159</acceleration>
+          <wrench>0 -0 -0.008512 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Construction Cone_1'>
+        <pose>-2.05495 -5.76417 -4e-06 4e-06 -1e-06 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>-2.05495 -5.76417 -4e-06 4e-06 -1e-06 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 -9.8 0 -0 0</acceleration>
+          <wrench>0 0 -9.8 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Construction Cone_2'>
+        <pose>-0.540461 6.05297 -0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>-0.540461 6.05297 -0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 -0 -0.008512 -2.58585 1.13682 3.14159</acceleration>
+          <wrench>0 -0 -0.008512 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Construction Cone_3'>
+        <pose>6.04185 3.77989 -0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>6.04185 3.77989 -0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 -0 -0.008512 -2.58585 1.13682 3.14159</acceleration>
+          <wrench>0 -0 -0.008512 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Construction Cone_4'>
+        <pose>5.75737 4.59202 -0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>5.75737 4.59202 -0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 -0 -0.008512 -2.58585 1.13682 3.14159</acceleration>
+          <wrench>0 -0 -0.008512 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Construction Cone_5'>
+        <pose>5.12979 5.43484 -6e-06 2e-06 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>5.12979 5.43484 -6e-06 2e-06 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 -9.8 0 -0 0</acceleration>
+          <wrench>0 0 -9.8 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Construction Cone_6'>
+        <pose>2.53967 -2.99938 -0 0 -1e-06 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>2.53967 -2.99938 -0 0 -1e-06 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>-0 0 0.008512 2.58585 -1.13682 -3.14159</acceleration>
+          <wrench>-0 0 0.008512 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Construction Cone_7'>
+        <pose>-4.30119 5.86013 -1e-06 3e-06 -1e-06 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>-4.30119 5.86013 -1e-06 3e-06 -1e-06 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>-1e-06 2e-06 -0.420506 -1.54539 -0.783025 -3.14159</acceleration>
+          <wrench>-1e-06 2e-06 -0.420506 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Construction Cone_8'>
+        <pose>5.50392 6.4547 -0 0 -1e-06 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>5.50392 6.4547 -0 0 -1e-06 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>-0 0 0.008512 2.58585 -1.13682 -3.14159</acceleration>
+          <wrench>-0 0 0.008512 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='ground_plane'>
+        <pose>0 0 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='rb-y1'>
+        <pose>3.79231 1.78333 -7.8e-05 2e-05 -0.000294 1.93059</pose>
+        <scale>1 1 1</scale>
+        <link name='base'>
+          <pose>3.79231 1.78333 -7.8e-05 2e-05 -0.000294 1.93059</pose>
+          <velocity>-0.000607 0.002639 0.007504 0.002643 0.001492 0.002753</velocity>
+          <acceleration>-0.549877 0.689869 15.1866 1.9494 -1.24526 2.59145</acceleration>
+          <wrench>-28.9071 36.2665 798.361 0 -0 0</wrench>
+        </link>
+        <link name='ee_finger_l1'>
+          <pose>3.5715 1.67681 0.607901 0.030856 -0.087199 -2.68012</pose>
+          <velocity>-0.009152 0.006725 0.006576 0.019474 -0.007529 -0.149237</velocity>
+          <acceleration>0.021393 4.60114 13.8572 -1.16722 -0.326203 -2.60496</acceleration>
+          <wrench>0.000712 0.15308 0.461031 0 -0 0</wrench>
+        </link>
+        <link name='ee_finger_l2'>
+          <pose>3.62145 1.70165 0.603024 -0.030858 0.087222 0.461534</pose>
+          <velocity>-0.00535 0.000189 0.007261 0.015951 -0.002234 -0.106981</velocity>
+          <acceleration>-0.063316 5.06392 15.3434 -0.767218 0.419445 0.842177</acceleration>
+          <wrench>-0.002107 0.168477 0.510474 0 -0 0</wrench>
+        </link>
+        <link name='ee_finger_r1'>
+          <pose>3.9936 1.89226 0.604812 -0.005019 0.037941 1.79532</pose>
+          <velocity>0.031043 0.021881 0.006477 0.020627 -0.040364 -0.697517</velocity>
+          <acceleration>5.94773 2.24764 12.9186 1.76004 1.06048 -1.16485</acceleration>
+          <wrench>0.197881 0.074779 0.429801 0 -0 0</wrench>
+        </link>
+        <link name='ee_finger_r2'>
+          <pose>4.00606 1.8377 0.606935 0.005029 -0.037911 -1.34624</pose>
+          <velocity>-0.006176 0.012437 0.005517 0.032529 -0.044278 -0.675021</velocity>
+          <acceleration>6.69585 2.39608 12.3385 -0.377271 -0.718325 1.49138</acceleration>
+          <wrench>0.222771 0.079718 0.410501 0 -0 0</wrench>
+        </link>
+        <link name='link_head_1'>
+          <pose>3.78474 1.80354 1.42993 5.8e-05 -0.000284 1.79229</pose>
+          <velocity>0.001372 -0.001107 0.0075 0.00121 -0.000315 -0.047645</velocity>
+          <acceleration>1.98534 -3.72348 15.3746 -0.661571 -0.161946 -2.2909</acceleration>
+          <wrench>0.147919 -0.277421 1.1455 0 -0 0</wrench>
+        </link>
+        <link name='link_head_2'>
+          <pose>3.78474 1.80354 1.42993 6.2e-05 -0.350286 1.79227</pose>
+          <velocity>0.001361 -0.001055 0.007561 0.002212 0.000527 -0.04746</velocity>
+          <acceleration>2.13294 -3.76376 15.4187 2.94852 -0.951082 0.486871</acceleration>
+          <wrench>0.076474 -0.134945 0.552816 0 -0 0</wrench>
+        </link>
+        <link name='link_left_arm_0'>
+          <pose>3.58657 1.70551 1.36992 0.350612 -0.092442 1.89694</pose>
+          <velocity>0.001503 -0.001423 0.006642 0.033409 -0.001696 -0.009372</velocity>
+          <acceleration>2.20834 -3.0206 14.8904 -0.745564 -0.130287 -0.102371</acceleration>
+          <wrench>2.78613 -3.81091 18.7864 0 -0 0</wrench>
+        </link>
+        <link name='link_left_arm_1'>
+          <pose>3.58657 1.70551 1.36992 0.003516 -0.092441 1.89694</pose>
+          <velocity>0.001663 -0.001417 0.006611 0.025839 0.019616 -0.007211</velocity>
+          <acceleration>2.16467 -2.9064 14.2921 2.9666 1.2041 -1.05611</acceleration>
+          <wrench>4.07258 -5.46807 26.889 0 -0 0</wrench>
+        </link>
+        <link name='link_left_arm_2'>
+          <pose>3.58657 1.70551 1.36992 -0.00341 0.092447 -1.24352</pose>
+          <velocity>0.001501 -0.001421 0.006538 0.027081 0.018069 -0.000508</velocity>
+          <acceleration>1.07519 -0.395422 14.4499 -1.98706 0.845436 -2.47146</acceleration>
+          <wrench>2.53352 -0.931749 34.0489 0 -0 0</wrench>
+        </link>
+        <link name='link_left_arm_3'>
+          <pose>3.58741 1.7001 1.09224 -0.003429 -0.147318 -1.2427</pose>
+          <velocity>-0.003665 0.005852 0.0063 0.001644 0.007382 0.00292</velocity>
+          <acceleration>0.01792 1.0342 13.9792 -1.69779 -1.36203 1.54485</acceleration>
+          <wrench>0.036001 2.07776 28.085 0 -0 0</wrench>
+        </link>
+        <link name='link_left_arm_4'>
+          <pose>3.5888 1.69327 0.834464 -0.091823 -0.115361 -0.590955</pose>
+          <velocity>-0.005883 0.005179 0.005567 0.022871 -0.002453 0.081981</velocity>
+          <acceleration>-3.22303 -2.31796 14.2914 1.13002 0.210302 0.238971</acceleration>
+          <wrench>-1.37007 -0.985335 6.0751 0 -0 0</wrench>
+        </link>
+        <link name='link_left_arm_5'>
+          <pose>3.5888 1.69327 0.834466 -0.091221 0.015286 -0.602955</pose>
+          <velocity>-0.006895 0.003216 0.006606 0.024969 -0.000121 0.080151</velocity>
+          <acceleration>-1.36647 -2.80367 14.6803 -1.39593 -1.53369 0.784912</acceleration>
+          <wrench>-1.97134 -4.04472 21.1785 0 -0 0</wrench>
+        </link>
+        <link name='link_left_arm_6'>
+          <pose>3.5888 1.69327 0.834466 0.030877 -0.087203 -2.68011</pose>
+          <velocity>-0.006386 0.004011 0.006594 0.007726 -0.013076 -0.142945</velocity>
+          <acceleration>1.40278 1.96138 14.0677 1.82948 -0.670636 0.074707</acceleration>
+          <wrench>1.64015 2.29327 16.4481 0 -0 0</wrench>
+        </link>
+        <link name='link_right_arm_0'>
+          <pose>3.99839 1.86042 1.36992 -0.350652 -0.093758 1.96471</pose>
+          <velocity>0.00113 -0.000443 0.007583 0.028797 0.011252 0.013137</velocity>
+          <acceleration>2.05149 -3.37738 15.3085 0.061507 1.03354 -2.61706</acceleration>
+          <wrench>2.58824 -4.26104 19.3138 0 -0 0</wrench>
+        </link>
+        <link name='link_right_arm_1'>
+          <pose>3.99839 1.86042 1.36992 0.001489 -0.093758 1.96471</pose>
+          <velocity>0.000945 -0.000326 0.007019 0.028074 0.012629 0.014379</velocity>
+          <acceleration>1.78403 -3.12469 14.3128 -0.741918 -0.701261 -2.51887</acceleration>
+          <wrench>4.05487 -7.10201 32.5311 0 -0 0</wrench>
+        </link>
+        <link name='link_right_arm_2'>
+          <pose>3.99839 1.86042 1.36992 -0.001511 0.093756 -1.17713</pose>
+          <velocity>0.000843 -0.000124 0.006837 0.026483 0.015002 -0.023359</velocity>
+          <acceleration>0.863545 -0.84801 14.2339 -1.82024 1.51204 -1.94562</acceleration>
+          <wrench>2.13217 -2.09381 35.1449 0 -0 0</wrench>
+        </link>
+        <link name='link_right_arm_3'>
+          <pose>3.99994 1.85562 1.09223 -0.00152 -0.14856 -1.17676</pose>
+          <velocity>-0.003422 0.00716 0.00651 0.01499 0.009764 -0.023953</velocity>
+          <acceleration>-0.225843 0.510774 13.6732 1.74368 1.46735 -0.395708</acceleration>
+          <wrench>-0.510628 1.15485 30.915 0 -0 0</wrench>
+        </link>
+        <link name='link_right_arm_4'>
+          <pose>4.00235 1.84879 0.834459 0.001535 0.148561 1.96491</pose>
+          <velocity>-0.007581 0.009727 0.006977 0.009078 0.024193 0.067928</velocity>
+          <acceleration>-3.30551 -0.153165 14.1108 -1.72283 -0.109732 0.982885</acceleration>
+          <wrench>-1.40513 -0.065109 5.99833 0 -0 0</wrench>
+        </link>
+        <link name='link_right_arm_5'>
+          <pose>4.00235 1.84879 0.834456 0.001458 0.038218 1.96473</pose>
+          <velocity>-0.007193 0.009685 0.005939 0.016457 -0.002998 0.064734</velocity>
+          <acceleration>-2.11041 -1.43749 13.083 1.95944 -0.531278 2.70057</acceleration>
+          <wrench>-3.35965 -2.2884 20.8273 0 -0 0</wrench>
+        </link>
+        <link name='link_right_arm_6'>
+          <pose>4.00235 1.84879 0.834455 -0.005009 0.037915 1.79534</pose>
+          <velocity>-0.006621 0.009892 0.00576 0.028095 -0.032543 -0.682216</velocity>
+          <acceleration>2.5444 1.17614 12.5884 -0.565829 1.22902 1.12394</acceleration>
+          <wrench>2.97494 1.37516 14.7185 0 -0 0</wrench>
+        </link>
+        <link name='wheel_l'>
+          <pose>3.46402 1.9034 0.1 -1.4e-05 0.102926 1.93059</pose>
+          <velocity>-0.000516 0.000972 0.010313 -0.009251 -0.004729 0.002574</velocity>
+          <acceleration>-2.25751 3.55152 20.1818 -2.10389 1.12021 2.45523</acceleration>
+          <wrench>-3.11049 4.89343 27.8072 0 -0 0</wrench>
+        </link>
+        <link name='wheel_r'>
+          <pose>3.96008 2.09001 0.099985 2.5e-05 -0.762436 1.93057</pose>
+          <velocity>-0.000785 0.001704 0.008559 -0.016336 -0.007359 0.003094</velocity>
+          <acceleration>-2.28039 2.92819 17.2081 0.094089 -0.31259 -0.011367</acceleration>
+          <wrench>-3.14201 4.03458 23.7101 0 -0 0</wrench>
+        </link>
+      </model>
+      <light name='sun'>
+        <pose>0 0 10 0 -0 0</pose>
+      </light>
+    </state>
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>6.13728 -4.75673 3.11441 0 0.195643 1.9402</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+  </world>
+</sdf>
