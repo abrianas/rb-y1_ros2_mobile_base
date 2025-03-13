@@ -18,21 +18,14 @@ def generate_launch_description():
     # Launch Arguments
     use_sim_time = LaunchConfiguration('use_sim_time', default=True)
 
-    def robot_state_publisher(context):
-        performed_description_format = LaunchConfiguration('description_format').perform(context)
-        # Get URDF or SDF via xacro
-        robot_description_content = Command(
-            [
-                PathJoinSubstitution([FindExecutable(name='xacro')]),
-                ' ',
-                PathJoinSubstitution([
-                    FindPackageShare(package_name),
-                    performed_description_format,
-                    robot.urdf.xacro.{performed_description_format}'
-                ]),
-            ]
-        )
-        robot_description = {'robot_description': robot_description_content}
+    def robot_state_publisher():
+        # Process the URDF file
+        pkg_path = os.path.join(get_package_share_directory('rb-Y1_mobile_base'))
+        xacro_file = os.path.join(pkg_path,'description','robot.urdf.xacro')
+        robot_description_content = xacro.process_file(xacro_file)
+    
+        # Create a robot_state_publisher node
+        robot_description = {'robot_description': robot_description_content.toxml()}
         node_robot_state_publisher = Node(
             package='robot_state_publisher',
             executable='robot_state_publisher',
